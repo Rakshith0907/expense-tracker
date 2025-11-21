@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Expense Tracker</title>
+
+  <!-- Bootstrap CSS (for spacing & layout utilities) -->
+  <link 
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
+    rel="stylesheet"
+  />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Main App Container -->
+  <main id="app" class="container py-4">
+    
+    <!-- Header: Title + Theme Toggle -->
+    <header class="d-flex justify-content-between align-items-center mb-4">
+      <h1 class="h3 m-0">Expense Tracker</h1>
+      <button id="theme-toggle" class="btn btn-sm btn-outline-secondary">
+        🌗
+      </button>
+    </header>
+
+    <!-- Sections will be added step-by-step -->
+    <section id="budget-section" class="mb-4"></section>
+    <section id="add-expense-section" class="mb-4"></section>
+    <section id="controls-section" class="mb-4"></section>
+    <section id="timeline-section" class="mb-4"></section>
+
+    <footer class="text-center mt-5">
+      <button id="download-csv" class="btn btn-outline-primary btn-sm">
+        Download CSV
+      </button>
+      <p class="text-muted small mt-3">
+        Built with HTML • CSS • JavaScript
+      </p>
+    </footer>
+
+  </main>
+
+  <!-- Bootstrap JS (optional but safe) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom JS -->
+  <script src="script.js"></script>
+</body>
+</html>
