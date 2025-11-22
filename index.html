@@ -20,13 +20,6 @@
   <!-- Main App Container -->
   <main id="app" class="container py-4">
     
-    <!-- Header: Title + Theme Toggle -->
-    <!-- <header id="app-header" class="d-flex justify-content-between align-items-center mb-4">
-      <h1 class="h3 m-0">Expense Tracker</h1>
-      <button id="theme-toggle" class="theme-toggle-btn">
-        🌗
-      </button>
-    </header> -->
     <header class="glass-header d-flex justify-content-between align-items-center mb-4">
       <h1 class="m-0">
           <span class="logo-icon">💰</span> Expense Tracker
@@ -36,8 +29,6 @@
           🌙
       </button>
     </header>
-
-
 
     <section id="budgetSection" class="glass-card p-3 mb-4">
         <h4 class="mb-3">Monthly Budget</h4>
@@ -58,18 +49,13 @@
               <span class="fw-semibold">Spent:</span>
               <span id="spentAmount" class="fw-bold">0</span>           
         </div>
-        <!-- <div class="budget-summary mb-3">
-          <p>Total Spent: <span id="spentAmount">0</span></p>
-          <p>Remaining: <span id="remainingAmount">0</span></p>
-        </div> -->
-        <!-- Progress Bar -->
+      
         <div class="progress rounded-pill" style="height: 12px;">
             <div id="budgetProgress"
                 class="progress-bar bg-success"
                 style="width: 100%;">
             </div>
         </div>
-        <!-- <a href="add.html" class="btn btn-primary mb-3">Add Expense</a> -->
     </section>
     
     <section id="expenseListSection" class="glass-card p-3 mb-4">
@@ -147,9 +133,6 @@
     <section id="timeline-section" class="mb-4"></section>
 
     <footer class="text-center mt-5">
-      <!-- <button id="download-csv" class="btn btn-outline-primary btn-sm">
-        Download CSV
-      </button> -->
       <button id="downloadCSV" class="btn btn-sm btn-primary mb-3">
         Download CSV
       </button>

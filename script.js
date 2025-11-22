@@ -27,10 +27,6 @@ if (savedTheme === "dark") {
 } else {
     themeToggleBtn.textContent = "🌙"; // Dark mode icon
 }
-// Load saved theme
-// if (localStorage.getItem("theme") === "dark") {
-//     document.body.classList.add("dark-mode");
-// }
 
 // Toggle theme on click
 themeToggleBtn.addEventListener("click", () => {
@@ -58,18 +54,6 @@ window.addEventListener("scroll", () => {
     }
 });
 
-// Toggle theme on click
-// themeToggleBtn.addEventListener("click", () => {
-//     document.body.classList.toggle("dark-mode");
-
-//     // Save preference
-//     if (document.body.classList.contains("dark-mode")) {
-//         localStorage.setItem("theme", "dark");
-//     } else {
-//         localStorage.setItem("theme", "light");
-//     }
-// });
-
 function updateBudgetUI() {
     const totalSpent = expenses.reduce((sum, exp) => sum + exp.amount, 0);
     const remaining = monthlyBudget - totalSpent;
@@ -82,32 +66,7 @@ function updateBudgetUI() {
 }
 
 
-
-// // Render a single expense item
-// function createExpenseItem(expense) {
-//     const li = document.createElement("li");
-//     li.className = "list-group-item expense-item d-flex justify-content-between align-items-start";
-//     li.setAttribute("data-id", expense.id);  // <-- this is what delete needs!
-
-//     li.innerHTML = `
-//         <div>
-//             <div><strong>${expense.title}</strong> <small class="text-muted">(${expense.category})</small></div>
-//             <small class="text-muted">${expense.date}</small>
-//         </div>
-
-//         <div class="text-end">
-//             <div class="expense-amount">₹${expense.amount}</div>
-
-//             <button class="btn btn-sm btn-warning mt-1 edit-btn">Edit</button>
-//             <button class="btn btn-sm btn-danger mt-1 delete-btn">Delete</button> 
-//         </div>
-//     `;
-
-//     return li;
-// }
-
-  // Helper: create item function (if you already have it, keep yours)
-  function createExpenseItem(expense) {
+function createExpenseItem(expense) {
     const li = document.createElement("li");
     li.className = "list-group-item expense-item d-flex justify-content-between align-items-start";
     li.setAttribute("data-id", expense.id);
@@ -130,8 +89,7 @@ function updateBudgetUI() {
       </div>
     `;
     return li;
-  }
-
+}
 
 function escapeHtml(str) {
     if (!str && str !== 0) return "";
@@ -142,7 +100,6 @@ function escapeHtml(str) {
       .replace(/"/g, "&quot;")
       .replace(/'/g, "&#039;");
 }   
-
 
 function renderExpenses() {
     expenseList.innerHTML = "";
@@ -155,8 +112,6 @@ function renderExpenses() {
     });
     updateBudgetUI();
 }
-
-
 
 expenseForm.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -185,7 +140,6 @@ expenseForm.addEventListener("submit", (e) => {
         return;
     }
 
-    // ADD NEW expense
     const expense = {
         id: Date.now(),
         title: titleInput.value,
@@ -239,19 +193,8 @@ function sortExpenses() {
     renderExpenses();
 }
 
-// function getFilteredExpenses() {
-//     const filterValue = filterSelect.value;
-
-//     if (filterValue === "all") {
-//         return expenses;
-//     }
-
-//     return expenses.filter(exp => exp.category === filterValue);
-// }
-
 function getFilteredExpenses() {
     const filterValue = filterSelect.value;
-
     if (filterValue === "all") {
         return expenses;
     }
@@ -278,8 +221,6 @@ document.addEventListener("DOMContentLoaded", () => {
     console.error("Expense list element not found (id='expenseList'). Please check your HTML.");
     return;
   }
-
-
 
   // renderExpenses (uses getFilteredExpenses if available)
   function renderExpenses() {
@@ -323,45 +264,6 @@ document.addEventListener("DOMContentLoaded", () => {
   if (typeof loadExpenses === "function") loadExpenses();
   else renderExpenses();
 });
-
-// expenseList.addEventListener("click", (e) => {
-//     if (e.target.classList.contains("edit-btn")) {
-//         const li = e.target.closest("li");
-//         const id = li.dataset.id;
-
-//         const exp = expenses.find(x => x.id === id);
-
-//         // Prefill form
-//         document.getElementById("title").value = exp.title;
-//         document.getElementById("amount").value = exp.amount;
-//         document.getElementById("category").value = exp.category;
-//         document.getElementById("date").value = exp.date;
-
-//         editingId = id;       // mark that we are editing
-//         submitBtn.innerText = "Update Expense";
-//     }
-// });
-
-// expenseList.addEventListener("click", (e) => {
-//     if (e.target.classList.contains("edit-btn")) {
-        
-//         const li = e.target.closest("li");
-//         const id = Number(li.dataset.id);
-
-//         const exp = expenses.find(x => x.id === id);
-
-//         // Prefill form
-//         titleInput.value = exp.title;
-//         amountInput.value = exp.amount;
-//         categoryInput.value = exp.category;
-//         notesInput.value = exp.notes || "";
-
-//         editingId = id;
-//         submitBtn.textContent = "Update Expense";
-//     }
-// });
-
-
 
 const savedBudget = localStorage.getItem("monthlyBudget");
 if (savedBudget) {

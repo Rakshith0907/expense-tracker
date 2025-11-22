@@ -3,47 +3,6 @@
 }
 
 
-/* For dark mode card styling */
-/* body.dark-mode #budgetSection {
-    background: #1f1f1f;
-    color: #eaeaea;
-} */
-
-/* #app-header {
-    background: linear-gradient(135deg, #6a5af9, #3c9df3);
-    border-radius: 18px;
-    color: #fff;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    transition: background 0.3s ease, color 0.3s ease;
-}
-
-body.dark #app-header {
-    background: linear-gradient(135deg, #1f1f1f, #3a3a3a);
-    color: #fff;
-    box-shadow: 0 4px 10px rgba(255,255,255,0.05);
-}
-
-.theme-toggle-btn {
-    font-size: 20px;
-    background: rgba(255,255,255,0.2);
-    border: none;
-    padding: 8px 14px;
-    border-radius: 50px;
-    color: #fff;
-    cursor: pointer;
-    transition: background 0.3s ease, transform 0.2s ease;
-}
-
-.theme-toggle-btn:hover {
-    background: rgba(255,255,255,0.3);
-    transform: rotate(10deg);
-}
-
-body.dark .theme-toggle-btn {
-    background: rgba(255,255,255,0.15);
-    color: #ffd369;
-} */
-
 :root {
     --pastel-bg-light: #f8f7ff;
     --pastel-card-light: #fffaffb5;
@@ -130,15 +89,6 @@ body.dark-mode {
 .light-mode .theme-btn {
     background: rgba(255, 255, 255, 0.65);
 }
-
-/* .glass-header:hover {
-    box-shadow:
-        0 0 10px rgba(93, 135, 255, 0.7),
-        0 0 20px rgba(93, 135, 255, 0.5),
-        0 0 30px rgba(93, 135, 255, 0.3);
-    border-color: rgba(120, 160, 255, 0.9);
-    transition: box-shadow 0.25s ease, border 0.25s ease;
-} */
 
 
 /* Sticky header effect */
