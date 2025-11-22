@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="icon" type="image/png" href="assets/icons/favicon.png">
   <title>Expense Tracker</title>
 
   <!-- Bootstrap CSS (for spacing & layout utilities) -->
@@ -20,21 +21,136 @@
   <main id="app" class="container py-4">
     
     <!-- Header: Title + Theme Toggle -->
-    <header class="d-flex justify-content-between align-items-center mb-4">
+    <!-- <header id="app-header" class="d-flex justify-content-between align-items-center mb-4">
       <h1 class="h3 m-0">Expense Tracker</h1>
-      <button id="theme-toggle" class="btn btn-sm btn-outline-secondary">
+      <button id="theme-toggle" class="theme-toggle-btn">
         🌗
+      </button>
+    </header> -->
+    <header class="glass-header d-flex justify-content-between align-items-center mb-4">
+      <h1 class="m-0">
+          <span class="logo-icon">💰</span> Expense Tracker
+      </h1>
+
+      <button id="theme-toggle" class="btn btn-sm theme-btn">
+          🌙
       </button>
     </header>
 
-    <!-- Sections will be added step-by-step -->
-    <section id="budget-section" class="mb-4"></section>
-    <section id="add-expense-section" class="mb-4"></section>
+
+
+    <section id="budgetSection" class="glass-card p-3 mb-4">
+        <h4 class="mb-3">Monthly Budget</h4>
+
+        <!-- Budget Input -->
+        <div class="mb-3">
+            <label for="budgetInput" class="form-label">Set Your Budget</label>
+            <input type="number" id="budgetInput" class="form-control" placeholder="Enter monthly budget">
+            <button id="setBudgetBtn" class="btn btn-primary mt-2">Set Budget</button>
+        </div>
+
+        <!-- Remaining Display -->
+        <div class="d-flex justify-content-between align-items-center mb-2">
+              <span class="fw-semibold">Remaining:</span>
+              <span id="remainingAmount" class="fw-bold">0</span>
+        </div>
+        <div class="d-flex justify-content-between align-items-center mb-2">     
+              <span class="fw-semibold">Spent:</span>
+              <span id="spentAmount" class="fw-bold">0</span>           
+        </div>
+        <!-- <div class="budget-summary mb-3">
+          <p>Total Spent: <span id="spentAmount">0</span></p>
+          <p>Remaining: <span id="remainingAmount">0</span></p>
+        </div> -->
+        <!-- Progress Bar -->
+        <div class="progress rounded-pill" style="height: 12px;">
+            <div id="budgetProgress"
+                class="progress-bar bg-success"
+                style="width: 100%;">
+            </div>
+        </div>
+        <!-- <a href="add.html" class="btn btn-primary mb-3">Add Expense</a> -->
+    </section>
+    
+    <section id="expenseListSection" class="glass-card p-3 mb-4">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h4 class="mb-0">Expenses</h4>
+
+            <!-- Sort + Filter -->
+            <div class="d-flex gap-2">
+                <!-- Sort -->
+                <select id="sortSelect" class="form-select">
+                    <option value="date-desc">Sort: Newest First</option>
+                    <option value="date-asc">Sort: Oldest First</option>
+                    <option value="amount-desc">Sort: High → Low</option>
+                    <option value="amount-asc">Sort: Low → High</option>
+                    <option value="category">Sort: Category</option>
+                </select>
+
+                <!-- Filter -->
+                <select id="filterSelect" class="form-select">
+                    <option value="all">Filter: All Categories</option>
+                    <option value="food">Food</option>
+                    <option value="travel">Travel</option>
+                    <option value="shopping">Shopping</option>
+                    <option value="bills">Bills</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Expense Table/List -->
+        <ul id="expenseList" class="list-group">
+            <!-- JS will inject list items here -->
+        </ul>
+    </section>
+
+    <!-- addExpense section -->
+    <section id="addExpenseSection" class="glass-card p-3 mb-4">
+        <h4 class="mb-3">Add Expense</h4>
+
+        <form id="expenseForm">
+
+            <div class="mb-3">
+                <label class="form-label">Title</label>
+                <input type="text" id="titleInput" class="form-control" placeholder="e.g., Pizza, Uber, Netflix" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Amount</label>
+                <input type="number" id="amountInput" class="form-control" placeholder="e.g., 250" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Category</label>
+                <select id="categoryInput" class="form-select" required>
+                    <option value="Food">Food</option>
+                    <option value="Travel">Travel</option>
+                    <option value="Shopping">Shopping</option>
+                    <option value="Bills">Bills</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Notes (optional)</label>
+                <textarea id="notesInput" class="form-control" placeholder="Any details…"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">Add Expense</button>
+        </form>
+    </section>
+
+    
+
     <section id="controls-section" class="mb-4"></section>
     <section id="timeline-section" class="mb-4"></section>
 
     <footer class="text-center mt-5">
-      <button id="download-csv" class="btn btn-outline-primary btn-sm">
+      <!-- <button id="download-csv" class="btn btn-outline-primary btn-sm">
+        Download CSV
+      </button> -->
+      <button id="downloadCSV" class="btn btn-sm btn-primary mb-3">
         Download CSV
       </button>
       <p class="text-muted small mt-3">
