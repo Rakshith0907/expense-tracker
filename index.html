@@ -6,20 +6,17 @@
   <link rel="icon" type="image/png" href="assets/icons/favicon.png">
   <title>Expense Tracker</title>
 
-  <!-- Bootstrap CSS (for spacing & layout utilities) -->
   <link 
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
     rel="stylesheet"
   />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-  <!-- Main App Container -->
   <main id="app" class="container py-4">
-    
     <header class="glass-header d-flex justify-content-between align-items-center mb-4">
       <h1 class="m-0">
           <span class="logo-icon">💰</span> Expense Tracker
@@ -29,18 +26,13 @@
           🌙
       </button>
     </header>
-
     <section id="budgetSection" class="glass-card p-3 mb-4">
         <h4 class="mb-3">Monthly Budget</h4>
-
-        <!-- Budget Input -->
         <div class="mb-3">
             <label for="budgetInput" class="form-label">Set Your Budget</label>
             <input type="number" id="budgetInput" class="form-control" placeholder="Enter monthly budget">
             <button id="setBudgetBtn" class="btn btn-primary mt-2">Set Budget</button>
         </div>
-
-        <!-- Remaining Display -->
         <div class="d-flex justify-content-between align-items-center mb-2">
               <span class="fw-semibold">Remaining:</span>
               <span id="remainingAmount" class="fw-bold">0</span>
@@ -62,9 +54,9 @@
         <div class="d-flex justify-content-between align-items-center mb-3">
             <h4 class="mb-0">Expenses</h4>
 
-            <!-- Sort + Filter -->
+
             <div class="d-flex gap-2">
-                <!-- Sort -->
+
                 <select id="sortSelect" class="form-select">
                     <option value="date-desc">Sort: Newest First</option>
                     <option value="date-asc">Sort: Oldest First</option>
@@ -73,7 +65,7 @@
                     <option value="category">Sort: Category</option>
                 </select>
 
-                <!-- Filter -->
+
                 <select id="filterSelect" class="form-select">
                     <option value="all">Filter: All Categories</option>
                     <option value="food">Food</option>
@@ -85,13 +77,13 @@
             </div>
         </div>
 
-        <!-- Expense Table/List -->
+
         <ul id="expenseList" class="list-group">
             <!-- JS will inject list items here -->
         </ul>
     </section>
 
-    <!-- addExpense section -->
+
     <section id="addExpenseSection" class="glass-card p-3 mb-4">
         <h4 class="mb-3">Add Expense</h4>
 

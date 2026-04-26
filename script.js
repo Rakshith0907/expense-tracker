@@ -12,7 +12,7 @@ const categoryInput = document.getElementById("categoryInput");
 const notesInput = document.getElementById("notesInput");
 const budgetInput = document.getElementById("budgetInput");
 const setBudgetBtn = document.getElementById("setBudgetBtn");
-
+ 
 const themeToggleBtn = document.getElementById("theme-toggle");
 
 let editingId = null;
@@ -85,7 +85,7 @@ function createExpenseItem(expense) {
 
       <div class="text-end">
         <div class="expense-amount">₹${Number(expense.amount).toFixed(2)}</div>
-        <button class="btn btn-sm btn-outline-danger mt-2 delete-btn" aria-label="Delete expense">✖</button>
+        <button class="btn btn-sm btn-outline-danger mt-2 delete-btn" aria-label="Delete expense"><i class="fa-solid fa-trash-can"></i></button>
       </div>
     `;
     return li;
