@@ -1,7 +1,6 @@
 let expenses = []; 
 let budget = 0; 
 
-// DOM shortcuts
 let expenseList = document.getElementById("expenseList");
 const sortSelect = document.getElementById("sortSelect");
 const filterSelect = document.getElementById("filterSelect");
@@ -23,23 +22,16 @@ let savedTheme = localStorage.getItem("theme");
 
 if (savedTheme === "dark") {
     document.body.classList.add("dark-mode");
-    themeToggleBtn.textContent = "🌞"; // Light mode icon
+    themeToggleBtn.textContent = "🌞"; 
 } else {
-    themeToggleBtn.textContent = "🌙"; // Dark mode icon
+    themeToggleBtn.textContent = "🌙"; 
 }
 
-// Toggle theme on click
 themeToggleBtn.addEventListener("click", () => {
     const isDark = document.body.classList.toggle("dark-mode");
-
-    // Add animation class
     themeToggleBtn.classList.add("rotate");
     setTimeout(() => themeToggleBtn.classList.remove("rotate"), 300);
-
-    // Change icon
     themeToggleBtn.textContent = isDark ? "🌞" : "🌙";
-
-    // Save theme
     localStorage.setItem("theme", isDark ? "dark" : "light");
 });
 
@@ -116,7 +108,6 @@ function renderExpenses() {
 expenseForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    // Validation
     if (!titleInput.value || !amountInput.value) {
         alert("Please enter a title and amount.");
         return;
@@ -168,25 +159,21 @@ function loadExpenses() {
     }
 }
 
-// Call on start
 loadExpenses();
 
 function sortExpenses() {
     const sortValue = sortSelect.value;
     if (sortValue === "date-desc") {
-        // Newest first
+
         expenses.sort((a, b) => b.id - a.id);
     } else if (sortValue === "date-asc") {
-        // Oldest first
+
         expenses.sort((a, b) => a.id - b.id);
     } else if (sortValue === "amount-desc") {
-        // High → Low
         expenses.sort((a, b) => b.amount - a.amount);
     } else if (sortValue === "amount-asc") {
-        // Low → High
         expenses.sort((a, b) => a.amount - b.amount);
     } else if (sortValue === "category") {
-        // Alphabetical category
         expenses.sort((a, b) => a.category.localeCompare(b.category));
     }
     renderExpenses();
@@ -197,8 +184,6 @@ function getFilteredExpenses() {
     if (filterValue === "all") {
         return expenses;
     }
-
-    // Case-insensitive compare
     return expenses.filter(exp => 
         exp.category.toLowerCase() === filterValue.toLowerCase()
     );
@@ -214,14 +199,11 @@ filterSelect.addEventListener("change", () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Ensure we have the element reference (in case script loaded before DOM)
   if (!expenseList) expenseList = document.getElementById("expenseList");
   if (!expenseList) {
     console.error("Expense list element not found (id='expenseList'). Please check your HTML.");
     return;
   }
-
-  // renderExpenses (uses getFilteredExpenses if available)
   function renderExpenses() {
     expenseList.innerHTML = "";
     const visible = (typeof getFilteredExpenses === "function") ? getFilteredExpenses() : expenses;
@@ -230,8 +212,6 @@ document.addEventListener("DOMContentLoaded", () => {
       expenseList.appendChild(li);
     });
   }
-
-  // delegated delete handler
   expenseList.addEventListener("click", function (e) {
     const btn = e.target.closest(".delete-btn");
     if (!btn) return;
@@ -248,8 +228,6 @@ document.addEventListener("DOMContentLoaded", () => {
       console.warn("Invalid id for delete:", idStr);
       return;
     }
-
-    // animation then remove
     li.classList.add("remove");
     setTimeout(() => {
       expenses = expenses.filter(e => Number(e.id) !== id);
@@ -259,7 +237,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 300);
   });
 
-  // initial render (in case you loaded expenses earlier)
   if (typeof loadExpenses === "function") loadExpenses();
   else renderExpenses();
 });
@@ -294,19 +271,15 @@ document.getElementById("downloadCSV").addEventListener("click", () => {
         return;
     }
 
-    // CSV header row
     let csv = "Title,Amount,Category,Notes,Date\n";
 
-    // Add each expense as a new row
     expenses.forEach(exp => {
         csv += `${exp.title},${exp.amount},${exp.category},${exp.notes || ""},${exp.date}\n`;
     });
 
-    // Convert CSV to downloadable file
     const blob = new Blob([csv], { type: "text/csv" });
     const url = URL.createObjectURL(blob);
 
-    // Download automatically
     const a = document.createElement("a");
     a.href = url;
     a.download = "expenses.csv";

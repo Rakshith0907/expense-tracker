@@ -16,14 +16,12 @@
     --pastel-text-dark: #f0f0f0;
 }
 
-/* Light mode background */
 body {
     background: var(--pastel-accent-2) !important;
     color: var(--pastel-text-light);
     transition: background 0.4s ease, color 0.4s ease;
 }
 
-/* Dark mode background */
 body.dark-mode {
     background: var(--pastel-bg-dark) !important;
     color: var(--pastel-text-dark);
@@ -42,7 +40,6 @@ body.dark-mode {
     transition: background 0.4s ease, box-shadow 0.4s ease;
 }
 
-/* Dark mode glass */
 .dark-mode .glass-card {
     background: var(--pastel-card-dark);
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -59,12 +56,10 @@ body.dark-mode {
     transition: background 0.3s ease, border 0.3s ease;
 }
 
-/* Logo icon slightly larger */
 .logo-icon {
     font-size: 1.4rem;
 }
 
-/* Toggle button restyle */
 .theme-btn {
     background: rgba(255, 255, 255, 0.16);
     border: none;
@@ -100,13 +95,13 @@ body.dark-mode {
     -webkit-backdrop-filter: blur(12px);
 }
 
-/* Extra blur applied during scroll */
+
 .glass-header.scrolled {
     background: rgba(255, 255, 255, 0.10);
     border-color: rgba(255, 255, 255, 0.25);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
-/* Default light mode */
+
 body {
   background: #f8f9fa;
   color: #212529;
@@ -114,7 +109,7 @@ body {
 }
 
 
-/* DARK MODE */
+
 .dark-mode {
   background: #121212 !important;
   color: #e4e4e4 !important;
@@ -141,7 +136,7 @@ body {
   transition: transform 0.3s ease;
 }
 
-/* Rotation animation */
+
 #theme-toggle.rotate {
   transform: rotate(180deg);
 }
@@ -152,7 +147,6 @@ body {
 }
 
 
-/* Smooth progress bar animation */
 .progress-bar {
     transition: width 0.4s ease-in-out;
 }
@@ -161,12 +155,7 @@ body {
     border-radius: 12px;
 }
 
-/* body.dark-mode #expenseListSection {
-    background: #1f1f1f;
-    color: #eaeaea;
-} */
 
-/* Each expense row */
 .list-group-item {
     display: flex;
     justify-content: space-between;
@@ -176,12 +165,7 @@ body {
     margin-bottom: 8px;
 }
 
-/* body.dark-mode .list-group-item {
-    background: #2a2a2a;
-    color: #f1f1f1;
-} */
 
-/* Amount boldness */
 .expense-amount {
     font-weight: 600;
 }
@@ -260,13 +244,11 @@ body.dark .btn-primary {
     color: #fff;
 }
 
-/* Expense item hover neon glow */
 .expense-item {
     transition: box-shadow 0.25s ease, transform 0.25s ease;
     border-radius: 12px;
 }
 
-/* Glow on hover */
 .expense-item:hover {
     box-shadow: 
         0 0 10px rgba(93, 135, 255, 0.6),
