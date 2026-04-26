@@ -173,7 +173,6 @@ loadExpenses();
 
 function sortExpenses() {
     const sortValue = sortSelect.value;
-
     if (sortValue === "date-desc") {
         // Newest first
         expenses.sort((a, b) => b.id - a.id);
